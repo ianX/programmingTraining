@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SAParamsDialog</class>
+ <widget class="QDialog" name="SAParamsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>352</width>
+    <height>287</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>291</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>30</y>
+     <width>281</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="labels">
+      <item>
+       <widget class="QLabel" name="initTempLabel">
+        <property name="text">
+         <string>InitTemp</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="finalTempLabel">
+        <property name="text">
+         <string>FinalTemp</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="alphaLabel">
+        <property name="text">
+         <string>Alpha</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="betaLabel">
+        <property name="text">
+         <string>Beta</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="innerLoopLabel">
+        <property name="text">
+         <string>InnerLoop</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="input">
+      <item>
+       <widget class="QLineEdit" name="initTemp"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="finalTemp"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="alpha"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="beta"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="innerLoop"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

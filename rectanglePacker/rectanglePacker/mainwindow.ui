@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>438</width>
+    <height>319</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Rectangle Packer</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="locale">
+   <locale language="Chinese" country="China"/>
+  </property>
+  <widget class="Stage" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>438</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuRetanglePacker">
+    <property name="title">
+     <string>file</string>
+    </property>
+    <addaction name="actionOpen"/>
+   </widget>
+   <widget class="QMenu" name="menuTool">
+    <property name="title">
+     <string>tool</string>
+    </property>
+    <addaction name="actionRandom"/>
+    <addaction name="actionSimulated_annealing"/>
+   </widget>
+   <widget class="QMenu" name="menuSetting">
+    <property name="title">
+     <string>setting</string>
+    </property>
+    <addaction name="actionSa_params"/>
+    <addaction name="actionAdd_rect"/>
+   </widget>
+   <addaction name="menuRetanglePacker"/>
+   <addaction name="menuTool"/>
+   <addaction name="menuSetting"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionAdd_rect"/>
+   <addaction name="actionRandom"/>
+   <addaction name="actionSimulated_annealing"/>
+   <addaction name="actionSa_params"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>open</string>
+   </property>
+  </action>
+  <action name="actionRandom">
+   <property name="text">
+    <string>random</string>
+   </property>
+  </action>
+  <action name="actionSimulated_annealing">
+   <property name="text">
+    <string>simulatedAnnealing</string>
+   </property>
+  </action>
+  <action name="actionSa_params">
+   <property name="text">
+    <string>params</string>
+   </property>
+  </action>
+  <action name="actionAdd_rect">
+   <property name="text">
+    <string>addRect</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Stage</class>
+   <extends>QWidget</extends>
+   <header location="global">stage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
