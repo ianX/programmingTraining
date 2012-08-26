@@ -54,6 +54,7 @@ void SAParamsDialog::on_buttonBox_accepted()
     double bta = getBeta(0);
     if(loop < 0 || itemp < 0 || ftemp < 0 || alp <0 || alp >=1 || bta < 0 || bta >=2)
     {
+        acc = false;
         QMessageBox::warning(this, tr("rectanglePacker"),
                              tr("input params error"), QMessageBox::Ok);
         return;

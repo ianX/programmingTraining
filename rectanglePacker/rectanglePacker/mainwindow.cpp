@@ -14,6 +14,8 @@
 
 #include "addrectdialog.h"
 
+#include <QDate>
+
 std::ostream & operator << (std::ostream &out ,const SAParams &pamas)
 {
     out<<"innerloop:\t"<<pamas.innerLoop<<'\n'
@@ -33,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     packingStrategy = new SPPackingStrategy;
     connect(ui->centralWidget,SIGNAL(removeRect(int)),this,SLOT(removeRect(int)));
     connect(ui->centralWidget, SIGNAL(updated()),this,SLOT(updateStatus()));
+    qDebug() << "Date:" << QDate::currentDate();
 }
 
 MainWindow::~MainWindow()
@@ -175,7 +178,7 @@ void MainWindow::on_actionRandom_triggered()
 
 void MainWindow::on_actionSimulated_annealing_triggered()
 {
-    if(layout.getRectNum() == 0)
+    if(layout.getRectNum() < 2)
         return;
     this->setEnabled(false);
     this->simulated_annealing();

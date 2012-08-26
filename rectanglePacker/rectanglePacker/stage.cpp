@@ -43,6 +43,11 @@ void Stage::paintEvent(QPaintEvent *ev)
     painter.scale(ss,ss);
     std::cout<<"paint, w:"<<s.width()<<" h:"<<s.height()<<" ss:"<<ss<<" x:"<<ss*x<<" y:"<<ss*y<<std::endl;
     painter.translate((s.width()/ss-x)/2,(s.height()/ss - y)/2);
+    painter.save();
+    painter.setPen(Qt::DotLine);
+    QRect outter(0,0,x,y);
+    painter.drawRect(outter);
+    painter.restore();
     painter.setPen(pen);
     painter.setBrush(brush);
     for(int i=0 ; i < (int) rects.size() ; ++i)

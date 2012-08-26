@@ -31,6 +31,7 @@ void AddRectDialog::on_buttonBox_accepted()
     int h = getHeight();
     if(w <= 0 || h <= 0)
     {
+        acc = false;
         QMessageBox::warning(this, tr("rectanglePacker"),
                              tr("input params error"), QMessageBox::Ok);
         return;

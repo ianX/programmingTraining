@@ -12,7 +12,7 @@ using namespace std;
 
 void SPPackingCommand::interpretToLayout(Layout &layout)
 {
-    cout << "In SPPackingCommand::interpretToLayout" << endl;
+    //cout << "In SPPackingCommand::interpretToLayout" << endl;
     //build position map
     int length = m_s1.size();
     vector<int> s1(length, 0), s2(length, 0);
@@ -45,7 +45,7 @@ void SPPackingCommand::interpretToLayout(Layout &layout)
     }
     //packing by the longest path algorithm
     LongestGraphPacking(horCons, verCons, layout);
-    std::cout<<layout;
+    //std::cout<<layout;
 }
 
 void SPPackingCommand::change(vector<int> &m_s)

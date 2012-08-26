@@ -26,6 +26,7 @@ void Layout::removeRect(int i)
 pair<float,float> Layout::compBorder()
 {
     int lX = INT_MAX, rX = INT_MIN, bY = INT_MAX, tY = INT_MIN;
+    //cout<<"size:"<<m_rects.size()<<endl;
     for (int i = 0; i < (int)m_rects.size(); ++ i)
     {
         Rect r = m_rects[i];

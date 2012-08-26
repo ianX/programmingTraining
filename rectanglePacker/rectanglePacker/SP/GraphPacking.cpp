@@ -48,12 +48,12 @@ static void OneDirectionPacking(vector<pair<int, int> > &cons, Layout &layout, b
     {
         for (int i = 0; i < rectNum; ++ i)
         {
-            cout << "Add edge <" << sourceId << "," << i << "> " << -rects[i].width << endl;
+            //cout << "Add edge <" << sourceId << "," << i << "> " << -rects[i].width << endl;
             d[sourceId][i] = -rects[i].width;
         }
         for (int i = 0; i < (int)cons.size(); ++ i)
         {
-            cout << "Add edge <" << cons[i].first << "," << cons[i].second << "> " << -rects[cons[i].second].width << endl;
+            //cout << "Add edge <" << cons[i].first << "," << cons[i].second << "> " << -rects[cons[i].second].width << endl;
             d[cons[i].first][cons[i].second] = -rects[cons[i].second].width;
         }
     }
@@ -61,22 +61,22 @@ static void OneDirectionPacking(vector<pair<int, int> > &cons, Layout &layout, b
     {
         for (int i = 0; i < rectNum; ++ i)
         {
-            cout << "Add edge <" << sourceId << "," << i << "> " << -rects[i].height << endl;
+            //cout << "Add edge <" << sourceId << "," << i << "> " << -rects[i].height << endl;
             d[sourceId][i] = -rects[i].height;
         }
         for (int i = 0; i < (int)cons.size(); ++ i)
         {
-            cout << "Add edge <" << cons[i].first << "," << cons[i].second << "> " << -rects[cons[i].second].height << endl;
+            //cout << "Add edge <" << cons[i].first << "," << cons[i].second << "> " << -rects[cons[i].second].height << endl;
             d[cons[i].first][cons[i].second] = -rects[cons[i].second].height;
         }
     }
-    cout << "Finished building the directed graph (adjacency matrix) with " << num_nodes << " vertices and " << num_nodes*num_nodes << " edges" << endl;
+    //cout << "Finished building the directed graph (adjacency matrix) with " << num_nodes << " vertices and " << num_nodes*num_nodes << " edges" << endl;
     FloydWarshallShortestPath(d, num_nodes);
     for (int i = 0; i < rectNum; ++ i)
     {
-        std::cout << "dii " << d[i][i] << endl;
+        //std::cout << "dii " << d[i][i] << endl;
         int dis = -d[sourceId][i];
-        std::cout << "Rect " << i << ": " << dis << endl;
+        //std::cout << "Rect " << i << ": " << dis << endl;
         if (hor)
         {
             rects[i].lb.x = dis-rects[i].width;
@@ -94,12 +94,12 @@ static void OneDirectionPacking(vector<pair<int, int> > &cons, Layout &layout, b
 
 void LongestGraphPacking(vector<pair<int, int> > &horCons, vector<pair<int, int> > &verCons, Layout &layout)
 {
-    cout << "In LongestGraphPacking " << endl;
+    //cout << "In LongestGraphPacking " << endl;
     bool hor = true;
-    cout << "========== horizontal ==========" << endl;
+    //cout << "========== horizontal ==========" << endl;
     OneDirectionPacking(horCons, layout, hor);
     hor = false;
-    cout << "========== vertical ==========" << endl;
+    //cout << "========== vertical ==========" << endl;
     OneDirectionPacking(verCons, layout, hor);
 }
 

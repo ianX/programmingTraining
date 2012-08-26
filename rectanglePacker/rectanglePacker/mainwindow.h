@@ -9,6 +9,8 @@
 #include "saparamsdialog.h"
 
 #include <iostream>
+
+#include <QDebug>
 using namespace RECTPACKING;
 
 namespace Ui {
@@ -21,7 +23,7 @@ struct SAParams {
     double alpha;
     double beta;
     int innerLoop;
-    SAParams():initTemp(100.0),finalTemp(0.1),alpha(0.95),beta(1.0),innerLoop(100)
+    SAParams():initTemp(100.0),finalTemp(0.1),alpha(0.92),beta(1.0),innerLoop(150)
     {}
     friend std::ostream & operator << (std::ostream &out , const SAParams &pamas);
 };
