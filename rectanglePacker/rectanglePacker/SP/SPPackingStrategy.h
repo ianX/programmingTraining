@@ -17,6 +17,7 @@ public:
     void compPackingLayout(Layout &layout);
     void nextPackingCommand();
     void fallBack(Layout &layout);
+    void getCommand(std::vector<int> &s1, std::vector<int> &s2);
 };
 
 }

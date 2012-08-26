@@ -17,7 +17,7 @@ void Layout::removeRect(int i)
     {
         m_rects.push_back(back_rects[k]);
     }
-    for(int k = i+1;k<back_rects.size();++k)
+    for(int k = i+1;k< (int)back_rects.size();++k)
     {
         m_rects.push_back(back_rects[k]);
     }

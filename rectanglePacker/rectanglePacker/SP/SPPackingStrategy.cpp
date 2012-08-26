@@ -52,4 +52,10 @@ void SPPackingStrategy::compPackingLayout(Layout &layout)
         m_pCommand->interpretToLayout(layout);
 }
 
+void SPPackingStrategy::getCommand(std::vector<int> &s1, std::vector<int> &s2)
+{
+    ((SPPackingCommand*)m_pCommand)->getS1(s1);
+    ((SPPackingCommand*)m_pCommand)->getS2(s2);
+}
+
 }

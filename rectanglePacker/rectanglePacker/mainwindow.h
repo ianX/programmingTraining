@@ -49,6 +49,8 @@ private slots:
 
     void removeRect(int);
 
+    void updateStatus();
+
 private:
     Ui::MainWindow *ui;
     Layout layout;

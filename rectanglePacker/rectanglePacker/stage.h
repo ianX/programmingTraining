@@ -38,6 +38,7 @@ public slots:
 
 signals:
     void removeRect(int);
+    void updated();
 private:
     QPoint transformXY(float xx , float yy);
 

@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     packingStrategy = new SPPackingStrategy;
     connect(ui->centralWidget,SIGNAL(removeRect(int)),this,SLOT(removeRect(int)));
+    connect(ui->centralWidget, SIGNAL(updated()),this,SLOT(updateStatus()));
 }
 
 MainWindow::~MainWindow()
@@ -44,6 +45,29 @@ void MainWindow::removeRect(int i)
     layout.removeRect(i);
     packingStrategy->initialPacking(layout);
     ui->centralWidget->updateStage(layout);
+}
+
+void MainWindow::updateStatus()
+{
+    pair<float,float> b = layout.compBorder();
+    int w = b.first;
+    int h = b.second;
+    int area = w*h;
+    vector<int> s1 ,s2;
+    packingStrategy->getCommand(s1,s2);
+    QString mess = tr("Area: ")+QString::number(area)+tr(";  width: ")+QString::number(w)+
+            tr(";  height: ")+QString::number(h)+tr(";  ");
+    mess += tr("s1: ");
+    for(int i = 0;i<(int)s1.size();++i)
+    {
+        mess+=QString::number(s1[i])+tr(",");
+    }
+    mess +=tr(" s2: ");
+    for(int i = 0;i< (int)s2.size();++i)
+    {
+        mess+=QString::number(s2[i])+tr(",");
+    }
+    ui->statusBar->showMessage(mess);
 }
 
 void MainWindow::loadFile(const QString &fileName)
@@ -84,7 +108,7 @@ void MainWindow::loadFile(const QString &fileName)
         rects.push_back(rect);
     }
 
-    if(rects.size() != num)
+    if((int)rects.size() != num)
         good = false;
     if(!good)
     {

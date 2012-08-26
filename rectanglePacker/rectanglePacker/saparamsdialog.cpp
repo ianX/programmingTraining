@@ -1,6 +1,8 @@
 #include "saparamsdialog.h"
 #include "ui_saparamsdialog.h"
 
+#include <QMessageBox>
+
 SAParamsDialog::SAParamsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SAParamsDialog)
@@ -45,6 +47,17 @@ double SAParamsDialog::getBeta(double d)
 
 void SAParamsDialog::on_buttonBox_accepted()
 {
+    int loop = getInnerLoop(0);
+    double itemp = getInitTemp(0);
+    double ftemp = getFinalTemp(0);
+    double alp = getAlpha(0);
+    double bta = getBeta(0);
+    if(loop < 0 || itemp < 0 || ftemp < 0 || alp <0 || alp >=1 || bta < 0 || bta >=2)
+    {
+        QMessageBox::warning(this, tr("rectanglePacker"),
+                             tr("input params error"), QMessageBox::Ok);
+        return;
+    }
     this->acc = true;
     this->close();
 }

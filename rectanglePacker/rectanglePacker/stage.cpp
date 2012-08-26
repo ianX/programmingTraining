@@ -29,6 +29,7 @@ void Stage::updateStage(Layout &layout)
     y = fp.second;
     std::cout<< "update :"<<layout.compArea()<<std::endl;
     this->repaint();
+    emit updated();
 }
 
 void Stage::paintEvent(QPaintEvent *ev)
@@ -44,7 +45,7 @@ void Stage::paintEvent(QPaintEvent *ev)
     painter.translate((s.width()/ss-x)/2,(s.height()/ss - y)/2);
     painter.setPen(pen);
     painter.setBrush(brush);
-    for(int i=0 ; i < rects.size() ; ++i)
+    for(int i=0 ; i < (int) rects.size() ; ++i)
     {
         Rect r = rects[i];
         QRect rect(r.lb.x,r.lb.y,r.width,r.height);
@@ -67,7 +68,7 @@ void Stage::mouseReleaseEvent(QMouseEvent *e)
     if(e->button() == Qt::RightButton)
     {
         int rm = -1;
-        for(int i = 0;i<rects.size();++i)
+        for(int i = 0;i<(int)rects.size();++i)
         {
             Rect r = rects[i];
             if(r.lb.x<lx && r.lb.x+r.width > lx && r.lb.y < ly && r.lb.y+r.height > ly)
